@@ -1,0 +1,12 @@
+<div class="wdghtml" taskKey="com.javarush.task.task35.task3513.big01">
+<h3>2048 (1)</h3>
+<p>Привет! Надеюсь ты уже успел устать от обычных задач и с нетерпением ждешь большую!<br />
+Сегодня напишем java реализацию игры <strong>2048</strong>. Вкратце, если ты о ней ничего не слышал, целью игры является получение плитки номиналом <strong>2048</strong> на игровом поле <strong>4х4</strong>. Подробнее можешь прочитать в википедии <em>https://ru.wikipedia.org/wiki/2048_(%D0%B8%D0%B3%D1%80%D0%B0)</em></p>
+<p><strong>Для начала нам понадобятся такие классы:</strong><br />
+1. <strong><span class="text-corporate">Controller</span></strong> &#8212; будет следить за нажатием клавиш во время игры.<br />
+2. <span class="text-corporate"><strong>Model</strong></span> &#8212; будет содержать игровую логику и хранить игровое поле.<br />
+3. <span class="text-corporate"><strong>View</strong></span> &#8212; обеспечит отображение текущего состояния игры на экран.<br />
+4. <span class="text-corporate"><strong>Main</strong></span> &#8212; будет содержать только метод <mark>main</mark> и служить точкой входа в наше приложение.</p>
+<p>Создай их!</p>
+
+</div>

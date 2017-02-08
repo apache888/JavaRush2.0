@@ -1,0 +1,230 @@
+<div class="wdghtml" taskKey="com.javarush.task.task27.task2712.big09">
+<h3>Ресторан(9)</h3>
+<p>Нам понадобится исключение, которое поможет обработать ситуацию, если у нас не будет получаться подобрать рекламные ролики.</p>
+<p>1. Создадим <strong>unchecked</strong> исключение <strong><span class="text-yellow">NoVideoAvailableException</span></strong> в пакете <span class="text-red"><strong>ad</strong></span>.</p>
+<p>2. Разберем подробно метод <mark>void processVideos()</mark> в <mark class="green">AdvertisementManager</mark>.<br />
+2.1. Удаляем из него вывод в консоль &#171;<em><strong>calling processVideos method</strong></em>&#187;<br />
+<strong>Метод должен:</strong><br />
+2.2. Подобрать список видео из доступных, просмотр которых обеспечивает максимальную выгоду. (<em><strong>Пока делать не нужно, сделаем позже).</strong></em><br />
+2.3. Если нет рекламных видео, которые можно показать посетителю, то бросить <span class="text-neon"><strong>NoVideoAvailableException</strong></span>, которое перехватить в оптимальном месте (<em><strong>подумать, где это место</strong></em>) и с уровнем <strong><span class="text-user">Level.INFO</span></strong> логировать фразу &#171;<em><strong>No video is available for the order</strong> </em>&#187; <em><strong>+</strong></em> <mark class="user">order</mark><br />
+2.4. Отобразить все рекламные ролики, отобранные для показа, в порядке уменьшения стоимости показа одного рекламного ролика в копейках. Вторичная сортировка &#8212; по увеличению стоимости показа одной секунды рекламного ролика в тысячных частях копейки.<br />
+Используйте метод <mark>Collections.sort</mark><br />
+(<em><strong>Тоже пока делать не нужно, сделаем позже</strong></em>).</p>
+<p><strong>Пример для заказа <em>[Water]</em>:</strong><br />
+<code>First Video is displaying... 50, 277</code><br />
+где <strong>First Video</strong> &#8212; название рекламного ролика<br />
+где <strong>50</strong> &#8212; стоимость показа одного рекламного ролика в копейках<br />
+где <strong>277</strong> &#8212; стоимость показа одной секунды рекламного ролика в тысячных частях копейки (<em>равно</em> <span class="text-user"><strong>0.277</strong></span> <em>коп</em>)<br />
+Используйте методы из класса <span class="text-corporate"><strong>Advertisement</strong></span>.<br />
+2.5. В классе <span class="text-corporate"><strong>Advertisement</strong></span> создайте метод <mark>void revalidate()</mark>. Этот метод должен:<br />
+2.5.1. Бросать <span class="text-neon"><strong>UnsupportedOperationException</strong></span>, если количество показов не положительное число.<br />
+2.5.2. Уменьшать количество показов.</p>
+
+<hr>
+<h3>Ресторан(8)</h3>
+<p>Пришло время описать функционал класса <span class="text-corporate"><strong>AdvertisementManager</strong></span>.<br />
+Но для начала нам понадобятся некоторые методы в классе <span class="text-corporate"><strong>Advertisement</strong></span>.</p>
+<p>1. В классе <span class="text-corporate"><strong>Advertisement</strong></span> создай поле <mark class="user">long amountPerOneDisplaying</mark>.<br />
+Оно должно равняться стоимости одного показа рекламного объявления в копейках (<strong>initialAmount/hits</strong>).<br />
+Присвой значение полю в конструкторе.</p>
+<p>2. В классе <span class="text-corporate"><strong>Advertisement</strong></span> создай геттеры для полей <mark class="user">name</mark>, <mark class="user">duration</mark> и <mark class="user">amountPerOneDisplaying</mark>.</p>
+<p>3. Определим необходимые данные для объекта <mark class="green">AdvertisementManager</mark> &#8212; это время выполнения заказа поваром.<br />
+Т.к. продолжительность видео у нас хранится в секундах, то и и время выполнения заказа тоже будем принимать в секундах.<br />
+В классе <mark class="green">AdvertisementManager</mark> создай конструктор, который принимает один параметр &#8212; <mark class="user">int timeSeconds</mark>.<br />
+Создай соответствующее поле и сохраните это значение в него.</p>
+<p>4. <mark class="green">AdvertisementManager</mark> выполняет только одно единственное действие &#8212; обрабатывает рекламное видео.<br />
+Поэтому создайте единственный публичный метод <mark>void processVideos()</mark>, его функционал опишем в следующем задании.<br />
+А пока выведем в консоль &#171;<em><strong>calling processVideos method</strong></em>&#187;</p>
+<p>5. Чтобы тестировать данную функциональность, нужно добавить вызов <mark>processVideos</mark> метода у <mark class="green">AdvertisementManager</mark>.<br />
+Очевидно, что этот метод должен вызываться во время создания заказа, а точнее &#8212; в параллельном режиме.<br />
+Заказ готовится в то время, как видео смотрится.<br />
+Добавьте вызов метода <mark>processVideos()</mark> в нужное место.</p>
+<p><strong>P.S.</strong> <em>Не забудь что время приготовления заказа считается в минутах, а время показа рекламы в секундах!</em></p>
+
+<hr>
+<h3>Ресторан(7)</h3>
+<p>При выборе, с какого класса начать, старайся найти тот, который используют другие, и который сам ничего не использует.<br />
+В нашем случае &#8212; это хранилище рекламных роликов (<span class="text-corporate"><strong>AdvertisementStorage</strong></span>).<br />
+Мы решили, что оно будет единственным в ресторане и сделали его синглтоном.</p>
+<p>Опишем его.<br />
+1. Видео должно где-то храниться, пусть это будет список.<br />
+Создадим поле <mark class="user">videos</mark> и инициализируем его пустым листом.<br />
+Подумай, должно ли поле videos иметь возможность менять свое значение?</p>
+<p>2. Чтобы как-то работать с видео, создай публичные методы:<br />
+2.1. <mark>list()</mark> &#8212; который вернет список всех существующих доступных видео.<br />
+2.2. <mark>add(Advertisement <strong>advertisement</strong>)</mark> &#8212; который добавит новое видео в список <mark class="user"><strong>videos</strong></mark>.</p>
+<p>3. В конструкторе класса добавим в список <mark class="user">videos</mark> какие-то данные. У меня это:<br />
+<span class="text-neon">Object someContent = new Object();</span><br />
+<span class="text-neon"> new Advertisement(someContent, &#171;First Video&#187;, 5000, 100, 3 * 60) // 3 min</span><br />
+<span class="text-neon"> new Advertisement(someContent, &#171;Second Video&#187;, 100, 10, 15 * 60) //15 min</span><br />
+<span class="text-neon"> new Advertisement(someContent, &#171;Third Video&#187;, 400, 2, 10 * 60) //10 min</span></p>
+<p>4. В <strong><span class="text-corporate">AdvertisementManager</span></strong> создадим <strong>final</strong> поле-ссылку на экземпляр <strong><span class="text-corporate">AdvertisementStorage</span></strong> и назовем ее <strong>storage</strong>.<br />
+Не забудь инициализировать созданное поле!</p>
+
+<hr>
+<h3>Ресторан(6)</h3>
+<p>Заказ создается, потом готовится поваром, а после этого относится посетителю. К тому же считается время выполнения заказа.<br />
+Будем считать, что первая часть задания выполнена.<br />
+Перейдем ко второй &#8212; пока заказ готовится, на планшете должна показываться реклама.<br />
+Определим, что такое реклама.</p>
+<p>Реклама &#8212; это видео определенной продолжительности. Также известно, что кто-то оплатил количество показов.<br />
+Будем считать, что у нас известно количество оплаченных показов, общая стоимость всех показов и сам рекламный ролик.</p>
+<p>1. Для связанного с рекламой функционала создадим пакет <span class="text-red"><strong>ad</strong></span>.</p>
+<p>2. Создадим класс <strong>Advertisement</strong>(<em>Рекламное объявление</em>) в пакете <span class="text-red"><strong>ad</strong></span>, у которого будут следующие поля:<br />
+<mark class="user">Object content</mark> &#8212; видео<br />
+<mark class="user">String name</mark> &#8212; имя/название<br />
+<mark class="user">long initialAmount</mark> &#8212; начальная сумма, стоимость рекламы в копейках. Используем long, чтобы избежать проблем с округлением<br />
+<mark class="user">int hits</mark> &#8212; количество оплаченных показов<br />
+<mark class="user">int duration</mark> &#8212; продолжительность в секундах<br />
+Модификаторы доступа расставь самостоятельно.</p>
+<p>3. В классе <span class="text-corporate"><strong>Advertisement</strong></span> создадим конструктор с порядком аргументов, соответствующим перечисленной последовательности всех полей класса</p>
+<p>4. В этом же пакете создадим еще два класса:<br />
+<strong><span class="text-corporate">AdvertisementStorage</span></strong> &#8212; хранилище рекламных роликов.<br />
+<span class="text-corporate"><strong>AdvertisementManager</strong></span> &#8212; у каждого планшета будет свой объект менеджера, который будет подбирать оптимальный набор роликов и их последовательность для каждого заказа.<br />
+Он также будет взаимодействовать с плеером и отображать ролики.</p>
+<p>5. Так как хранилище рекламных роликов <span class="text-corporate"><strong>AdvertisementStorage</strong></span> единственное для всего ресторана, то сделаем его синглтоном.</p>
+
+<hr>
+<h3>Ресторан(5)</h3>
+<p>Сейчас повар готовит блюда моментально. На самом деле приготовление занимает какое-то время.<br />
+Нам нужно вычислить время приготовления всего заказа, чтобы потом подбирать рекламные ролики для этого времени.</p>
+<p>1. Предположим, что нам известно время приготовления каждого блюда в минутах. Захардкодим его в классе <span class="text-corporate"><strong>Dish</strong></span>.<br />
+1.1. Измени создание элементов <strong>enum</strong> &#8212; <mark>Fish(25)</mark>, <mark>Steak(30)</mark>, <mark>Soup(15)</mark>, <mark>Juice(5)</mark>, <mark>Water(3)</mark>;<br />
+1.2. Создай поле <mark class="user">private int duration</mark> с <strong>геттером</strong>.<br />
+Чтобы создать <strong>геттер</strong>, нажмите <span class="text-neon">Alt+Insert</span> и выберите пункт <strong>Getter</strong>. Далее выберите имя поля и нажмите <strong>OK(Enter)</strong>.</p>
+<p>2. Добавим возможность посчитать продолжительность приготовления всего заказа.<br />
+Куда его добавить???<br />
+2.1. Если в класс <span class="text-corporate"><strong>Cook</strong></span>, то повар сможет считать продолжительность приготовления заказа.<br />
+Чтобы другие классы могли получить эту информацию, необходимо будет получить доступ к объекту <span class="text-corporate"><strong>Cook</strong></span>.<br />
+2.2. Если в класс <span class="text-corporate"><strong>Order</strong></span>, то имея доступ к заказу всегда можно узнать продолжительность приготовления.<br />
+2.3. Выбери правильное место из <strong>п.2.1.</strong> и <strong>п.2.2.</strong> и добавьте метод <mark>pubic int getTotalCookingTime()</mark>, который посчитает суммарное время приготовления всех блюд в заказе.<br />
+2.4. Добавим нашему повару вывод в консоль этой информации. Пусть теперь выводится аналогичное сообщение:<br />
+<span class="text-neon">Start cooking &#8212; Your order: [Soup, Juice, Water] of Tablet{number=5}, cooking time 23min</span></p>
+<p>Наведем красоту:<br />
+3. Запустим приложение и сразу введем &#8216;<strong>exit</strong>&#8216;. Вывод получился не очень красивым.<br />
+Сделай так, чтобы если в заказе нет блюд, он не отправлялся повару. Найди это место и реализуйте логику.<br />
+В классе <span class="text-corporate"><strong>Order</strong></span> создай вспомогательный метод <mark>public boolean isEmpty()</mark>, который будет определять, есть ли какие либо блюда в заказе.</p>
+
+<hr>
+<h3>Ресторан(4)</h3>
+<p>Что мы имеем? Повар приготовил блюда, пора их уносить, а официант не знает об этом.</p>
+<p>Нужно уведомить официанта, что пора забирать заказ с кухни.</p>
+<p>Ситуация аналогична предыдущему заданию, поэтому снова будем использовать паттерн Observer.</p>
+<p></p>
+<p>1. Создадим класс Waiter(Официант) в пакете kitchen, он будет относить заказы назад к столику. Официант будет безымянным.</p>
+<p></p>
+<p>2. Cook(Повар) готовит заказы, а Waiter их обрабатывает. Расставь правильно Observer и Observable между Waiter и Cook.</p>
+<p></p>
+<p>3. Метод void update будет выводить в консоль сообщение о том, какой заказ и кем был приготовлен:</p>
+<p>order + &quot; was cooked by &quot; + cook</p>
+<p></p>
+<p>4. В классе наследнике Observable перед отправкой заказа сделаем следующее:</p>
+<p>4.1. Установим флаг setChanged()</p>
+<p>4.2. Отправим наблюдателю заказ - notifyObservers(order);</p>
+<p></p>
+<p>5. Пишем main.</p>
+<p>Для объекта Observable добавляем свой объект Observer. См. п.2 и описание паттерна в wikipedia</p>
+<p>Называем повара, имя не влияет на тесты. В моем варианте - это Amigo :)</p>
+<p></p>
+<p>Сверим выводы в консоль. Пример моего вывода:</p>
+<p>Your order: [Water] of Tablet{number=5}</p>
+<p>Start cooking - Your order: [Water] of Tablet{number=5}</p>
+<p>Your order: [Water] of Tablet{number=5} was cooked by Amigo</p>
+
+<hr>
+<h3>Ресторан(3)</h3>
+<p>Сейчас мы можем создавать заказы. Давай сделаем так, чтобы они автоматически поступали к повару.</p>
+<p>Есть много различных способов реализации данной функциональности.</p>
+<p>Почитай про паттерн Observer - http://en.wikipedia.org/wiki/Observer_pattern</p>
+<p>Он уже реализован в java, и мы его будем использовать.</p>
+<p></p>
+<p>1. Создадим класс Cook(Повар) в пакете kitchen, он будет готовить. Пусть в конструкторе приходит его имя, которое выводится методом toString.</p>
+<p></p>
+<p>2. Tablet создает заказы, а Cook их обрабатывает. Расставь правильно Observer и Observable между Tablet и Cook.</p>
+<p></p>
+<p>3. Метод void update(Observable observable, Object arg), который необходимо реализовать, принимает два параметра.</p>
+<p>-observable - объект, который отправил нам значение</p>
+<p>-arg - само значение, в нашем случае - это объект Order</p>
+<p>На данном этапе мы будем лишь имитировать обработку и выведем в консоль &quot;Start cooking - &quot; + order</p>
+<p></p>
+<p>3. Пишем main.</p>
+<p>Для объекта Observable добавляем свой объект Observer. См. п.2 и описание паттерна в wikipedia</p>
+<p>Называем повара, имя не влияет на тесты. В моем варианте - это Amigo :)</p>
+<p></p>
+<p>Сверим выводы в консоль. Пример моего вывода:</p>
+<p>Your order: [Soup] of Tablet{number=5}</p>
+<p>Start cooking - Your order: [Soup] of Tablet{number=5}</p>
+<p></p>
+<p>4. Не забудь сразу после создания заказа и вывода информации о нем в консоль (найдите это место в коде) сделать следующее:</p>
+<p>4.1. Установить флаг setChanged()</p>
+<p>4.2. Отправить обсерверу заказ - notifyObservers(order);</p>
+<p></p>
+<p>5. Также внесем небольшое изменение. Сделай так чтобы метод createOrder возвращал текущий заказ или null, если заказ создать не удалось.</p>
+
+<hr>
+<h3>Ресторан(2)</h3>
+<p>1. Мы много работаем с консолью. Пора создать единую точку взаимодействия.<br />
+Создай класс <span class="text-corporate"><strong>ConsoleHelper</strong></span> с единственным <span class="text-corporate"><strong>BufferedReader</strong></span>, через который будем работать с консолью.<br />
+Запомни, этот класс не хранит никаких данных и состояний, поэтому все методы будут статическими.<br />
+<strong>Создай в нем три метода:</strong><br />
+&#8212; <mark>writeMessage(String <strong>message</strong>)</mark> &#8212; для вывода message в консоль<br />
+&#8212; <mark>String readString()</mark> &#8212; для чтения строки с консоли<br />
+&#8212; <mark>List&lt;Dish&gt; getAllDishesForOrder()</mark> &#8212; просит пользователя выбрать блюдо и добавляет его в список.<br />
+Выведи список всех блюд и попроси пользователя ввести строку &#8212; название блюда.<br />
+Введенное &#8216;<strong>exit</strong>&#8216; означает завершение заказа.<br />
+В случае, если введенное блюдо не представлено в меню, выведи сообщение о том, что такого блюда нет и продолжи формирование заказа.<br />
+Исключения ввода-вывода бросай выше, на этом уровне не понятно, что с ними делать.</p>
+<p>2. <strong>Сделай рефакторинг</strong> &#8212; работа с консолью должна быть только через класс <span class="text-corporate"><strong>ConsoleHelper</strong></span>.</p>
+<p>3. Вернемся к классу <span class="text-corporate"><strong>Order</strong></span>: в нем есть ссылка на планшет, и еще есть список выбранных блюд.<br />
+Инициализируй список dishes в конструкторе, вызвав метод <mark>getAllDishesForOrder</mark> из <strong><span class="text-corporate">ConsoleHelper</span></strong>.</p>
+<p>4. Перепиши метод <mark>toString</mark> в классе <span class="text-corporate"><strong>Order</strong></span>. Пусть он возвращает пустую строку, если нет блюд в заказе, иначе вывод должен быть аналогичным примеру в порядке добавления блюд. Используй ConsoleHelper.<br />
+Также измени метод toString в классе Tablet (<em>внутри класса</em> <strong><span class="text-corporate">Tablet</span></strong> <em>нажмите</em> <span class="text-neon">Alt+Insert -&gt; toString()</span>).<br />
+<strong>Пример:</strong><br />
+<span class="text-neon">Your order: [Juice, Fish] of Tablet{number=5}</span></p>
+<p>5. У нас все завязано на работу с консолью. Однако, при возникновении исключений, наше приложение умрет.<br />
+Чтобы узнать причину &#8212; добавим в <span class="text-corporate"><strong>Tablet</strong></span> статическое поле <mark class="user">logger</mark> типа <em><strong>java.util.logging.Logger</strong></em>, инициализированное именем класса (<mark>Logger.getLogger(Tablet.class.getName())</mark>).</p>
+<p>6. В методе <mark>createOrder</mark> класса <span class="text-corporate"><strong>Tablet</strong></span> обработаем исключения ввода-вывода.<br />
+Запишем в лог &#171;<em><strong>Console is unavailable.</strong></em>&#171;. Уровень лога &#8212; <mark class="green">SEVERE</mark> &#8212; это самый серьезный уровень, мы не можем работать.<br />
+Также в методе <mark>createOrder</mark> класса <span class="text-corporate"><strong>Tablet</strong></span> должен быть создан новый заказ.</p>
+<p>7. Надо начинать тестировать наше приложение.<br />
+Добавьте в <mark>main</mark> создание планшета и создание заказа &#8212; <mark>new Tablet(5).createOrder()</mark>;</p>
+
+<hr>
+<h3>Ресторан(1)</h3>
+<p>Давай напишем программу для <strong>автоматизации</strong> <strong>работы в ресторане</strong>.</p>
+<p>Пусть задание сформулировано так &#8212; директор ресторана хочет, чтобы:<br />
+1. на каждом столике лежал планшет, через который можно было бы сделать заказ;<br />
+2. пока заказ готовится, на планшете показывалась реклама;<br />
+3. в конце рабочего дня была возможность посмотреть различную статистику:<br />
+а) загрузки повара;<br />
+б) сумму выручки за заказы;<br />
+в) сумму выручки за показы рекламы.</p>
+<p>Мы будем разрабатывать ядро, без <strong>UI</strong>. <strong>UI</strong> ты потом сможешь дописать самостоятельно, сейчас ограничимся консольным интерфейсом.<br />
+Также мы часть данных захардкодим, ты потом сможешь прикрутить БД, и работать с ней.</p>
+<p><strong>Выделим несколько фич, которые будем реализовывать:</strong></p>
+<p><strong>Первая:</strong><br />
+&#8212; созданный посетителем заказ будет автоматически поступать к повару;<br />
+&#8212; повар будет готовить его какое-то время и отмечать приготовленным;<br />
+&#8212; после этого официант будет относить его.</p>
+<p><strong>Вторая:</strong><br />
+&#8212; подобрать нужные рекламные ролики из списка оплаченных;<br />
+&#8212; отображение рекламных роликов во время приготовления заказа;<br />
+&#8212; максимизировать прибыль от показа рекламы.</p>
+<p><strong>Третья:</strong><br />
+&#8212; подсчет статистики;<br />
+&#8212; отображение статистики директору.</p>
+<p>Начнем с первой фичи &#8212; автоматизация обработки заказа:</p>
+<p><strong>Итак..</strong><br />
+1. Создай класс <span class="text-corporate"><strong>Restaurant</strong></span> с методом <mark>main</mark>.</p>
+<p>2. Начнем с планшета, создадим класс <span class="text-corporate"><strong>Tablet</strong></span>, в котором создадим поле <mark class="user">final int number</mark> &#8212; это номер планшета, чтобы можно было однозначно установить, откуда поступил заказ. Номер планшета должен инициализироваться в конструкторе переданным параметром.</p>
+<p>3. В классе <span class="text-corporate"><strong>Tablet</strong></span> создадим метод <mark>public void createOrder()</mark>, который будет создавать заказ из тех блюд, которые выберет пользователь.<br />
+Для этого создадим класс <span class="text-corporate"><strong>Order</strong></span>, который поместим в пакет <span class="text-red"><strong>kitchen</strong></span>.</p>
+<p>4. В классе <span class="text-corporate"><strong>Order</strong></span> (<em>заказ</em>) должна быть информация, относящаяся к списку выбранных пользователем блюд.<br />
+Т.е. где-то должен быть список всех блюд, и должен быть список выбранных блюд в классе <span class="text-corporate"><strong>Order</strong></span>.<br />
+В классе Order нужны поля <mark class="user">private final int <strong>number</strong></mark> и <mark class="user">protected List&lt;Dish&gt; <strong>dishes</strong></mark>.<br />
+Конструктор должен принимать один параметр типа <span class="text-corporate"><strong>Tablet</strong></span> и инициализировать поле <mark class="user">tablet</mark>.</p>
+<p>5. Нам нужен класс <strong><span class="text-corporate">Dish</span></strong>(<em>Блюдо</em>), создадим его в пакете <strong><span class="text-red">kitchen</span></strong>. Пусть это будет <strong>enum</strong> со списком блюд: <strong>Fish</strong>, <strong>Steak</strong>, <strong>Soup</strong>, <strong>Juice</strong>, <strong>Water</strong>.</p>
+<p>6. Чтобы пользователь мог выбрать себе блюда, нужно их все ему отобразить. Для этого в Dish создай метод <mark>public static String allDishesToString()</mark>, который сформирует строку из всех блюд.</p>
+<p><strong>Пример:</strong> &#171;<em><strong>Fish</strong>, <strong>Steak</strong>, <strong>Soup</strong>, <strong>Juice</strong>, <strong>Water</strong></em>&#171;. Формируй строку динамически.</p>
+
+</div>

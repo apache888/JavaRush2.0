@@ -1,0 +1,9 @@
+<div class="wdghtml" taskKey="com.javarush.task.task35.task3509">
+<h3>Collections & Generics</h3>
+<p>Реализуй вспомогательныe методы в классе <span class="text-corporate"><strong>Solution</strong></span>, которые должны создавать соответствующую коллекцию и помещать туда переданные объекты.<br />
+Методы <mark>newArrayList</mark>, <mark>newHashSet</mark> параметризируй типом <span class="text-corporate"><strong>T</strong></span>.<br />
+Метод <mark>newHashMap</mark> параметризируй типами <span class="text-corporate"><strong>К</strong></span>(<strong>ключ</strong>) и <span class="text-corporate"><strong>V</strong></span>(<strong>значение</strong>). Аргументы метода <mark>newHashMap</mark> должны принимать списки, в которых содержатся наследники типов <span class="text-corporate"><strong>K</strong></span> и <strong><span class="text-corporate">V</span></strong>.<br />
+Возвращаемые коллекции должны быть такого же типа, что и переданные в метод объекты.</p>
+<p><strong>Подсказка:</strong> <em>в методе</em> <mark>newHashMap</mark> <em>нужно проверить чтобы списки ключей и значений совпадали по размерам, в противном случае кинь <span class="text-neon">IllegalArgumentException</span></em>.</p>
+
+</div>

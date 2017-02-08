@@ -1,0 +1,14 @@
+<div class="wdghtml" taskKey="com.javarush.task.task37.task3702.big01">
+<h3>Фабрики (1)</h3>
+<p>Привет!<br />
+Сейчас ты будешь разбираться с паттерном <strong>Factory Method</strong>. Возьмем пример с людьми.<br />
+Будем определять, к какому типу относится человек в зависимости от его возраста.</p>
+<p>В этом задании подготовим данные, которые будем использовать в фабрике.</p>
+<p>1. Для всех типов людей создай общий интерфейс <strong><span class="text-yellow">Human</span></strong>.</p>
+<p>2. Будем делать <strong><span class="text-corporate">Factory</span></strong> для мужчин. Для этого создай пакет male, в котором создай классы <span class="text-corporate"><strong>KidBoy</strong></span>, <span class="text-corporate"><strong>TeenBoy</strong></span>, <span class="text-corporate"><strong>Man</strong></span>.<br />
+Во всех этих классах реализуй интерфейс <span class="text-yellow"><strong>Human</strong></span>.</p>
+<p>3. В каждом классе <span class="text-corporate"><strong>KidBoy</strong></span>, <span class="text-corporate"><strong>TeenBoy</strong></span> создай свою публичную константу <strong><span class="text-neon">MAX_AGE</span></strong> с соответствующими значениями: <span class="text-user"><strong>12, 19</strong></span>.</p>
+<p>4. Сгенерируй автоматические методы toString для каждого класса <span class="text-corporate"><strong>KidBoy</strong></span>, <span class="text-corporate"><strong>TeenBoy</strong></span>, <span class="text-corporate"><strong>Man</strong></span>. Получится &#171;<strong><em>KidBoy{}</em></strong>&#187; и т.п.</p>
+<p>5. Создай класс <span class="text-corporate">Solution</span> с методом <mark>main</mark>.</p>
+
+</div>

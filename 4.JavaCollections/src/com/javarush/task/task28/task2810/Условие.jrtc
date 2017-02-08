@@ -1,0 +1,17 @@
+<div class="wdghtml" taskKey="com.javarush.task.task28.task2810.big01">
+<h3>Aggregator (1)</h3>
+<p>Пришло время немного поработать с информацией в инете. В этом задании ты будешь писать агрегатор <strong>java</strong> вакансий.<br />
+Что у нас должно быть?<br />
+Должен быть список сайтов, на которых мы ищем вакансии.<br />
+Для начала возьмем <em>http://hh.ua/</em> и <em>http://hh.ru/</em>, потом уже добавим другие сайты поиска работы.<br />
+Это один и тот же сайт, только в разных доменах.</p>
+<p>С чего же нужно начать реализацию? Конечно же с метода <mark>main</mark> : )<br />
+1. Создай класс <span class="text-corporate"><strong>Aggregator</strong></span> с методом main.</p>
+<p>2. Создай пакет <strong><span class="text-red">model</span></strong>, в нем создай класс <span class="text-corporate"><strong>Provider</strong></span>.<br />
+Этот класс будет обобщать способ получения данных о вакансиях.</p>
+<p>3. Т.к. для каждого сайта будет выполняться одинаковый сценарий, то будет паттерн Стратегия. Почитай про него в инете на вики.<br />
+В пакете <span class="text-red"><strong>model</strong></span> создай интерфейс <span class="text-yellow"><strong>Strategy</strong></span>.<br />
+Он будет отвечать за получение данных с сайта.</p>
+<p>4. В класс <span class="text-corporate"><strong>Provider</strong></span> добавь поле <strong><span class="text-yellow">Strategy</span></strong> <mark class="user">strategy</mark>. Добавь конструктор с этим полем и <strong>сеттер</strong>.</p>
+
+</div>

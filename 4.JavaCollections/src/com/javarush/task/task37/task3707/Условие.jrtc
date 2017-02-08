@@ -1,0 +1,13 @@
+<div class="wdghtml" taskKey="com.javarush.task.task37.task3707.big01">
+<h3>AmigoSet (1)</h3>
+<p>Давай напишем какую-нибудь коллекцию. Пусть это будет твой собственный <mark>Set</mark>.<br />
+Пусть этот класс позволяет вставку <span class="text-neon"><strong>NULL</strong></span>.</p>
+<p>1. Создай класс <strong><span class="text-corporate">AmigoSet</span></strong>. Пусть этот класс наследуется от <span class="text-corporate"><strong>AbstractSet</strong></span>.<br />
+Этот сэт должен поддерживать интерфейсы <span class="text-yellow"><strong>Serializable</strong></span> и <span class="text-yellow"><strong>Cloneable</strong></span> (<em>как же без этого??</em>).<br />
+Также очевидно, что он должен реализовывать интерфейс <span class="text-yellow"><strong>Set</strong></span>.</p>
+<p>2. Этот класс должен работать с любыми типами, поэтому сделай его дженериком: добавь тип, например, <span class="text-corporate"><strong>E</strong></span>.<br />
+Стандартные буквы, которые используют для дженериков &#8212; это <span class="text-corporate"><strong>E</strong></span> (<strong>element</strong>), <span class="text-corporate"><strong>T</strong></span> (<strong>type</strong>), <span class="text-corporate"><strong>K</strong></span> (<strong>key</strong>), <span class="text-corporate"><strong>V</strong></span> (<strong>value</strong>).<br />
+Названия не принципиальны, но облегчают чтение кода.</p>
+<p>3. Воспользуйся горячими клавишами Идеи и реализуй необходимые методы, оставь реализацию по умолчанию.</p>
+
+</div>
