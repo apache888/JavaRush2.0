@@ -1,0 +1,6 @@
+<div class="wdghtml" taskKey="com.javarush.task.task01.task0111">
+<h3>Одной переменной недостаточно</h3>
+<p>Объяви переменные <mark class="user">a</mark>, <mark class="user">b</mark> типа <span class="text-corporate">int</span> и переменную <mark class="user">s</mark> типа <span class="text-corporate">String</span>.<br />
+Сразу же в строке объявления присвой им любые разные значения.</p>
+
+</div>

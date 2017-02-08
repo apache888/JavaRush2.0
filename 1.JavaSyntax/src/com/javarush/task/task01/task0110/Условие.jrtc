@@ -1,0 +1,7 @@
+<div class="wdghtml" taskKey="com.javarush.task.task01.task0110">
+<h3>На нашем экране — переменная</h3>
+<p>Объяви переменную <mark class="user">name</mark> типа <span class="text-corporate">String</span>.<br />
+Сразу же в строке объявления присвой ей какое-нибудь значение.<br />
+Выведи на экран переменную <mark class="user">name</mark>.</p>
+
+</div>

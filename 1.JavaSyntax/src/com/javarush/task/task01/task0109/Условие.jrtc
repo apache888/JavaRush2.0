@@ -1,0 +1,7 @@
+<div class="wdghtml" taskKey="com.javarush.task.task01.task0109">
+<h3>«Я по объявлению…»</h3>
+<p>Объяви переменные <mark class="user">a</mark>, <mark class="user">b</mark> типа <span class="text-corporate">int</span>.<br />
+Сразу же в строке объявления присвой им разные значения.<br />
+Значениями могут быть любые <span class="text-corporate">целые числа</span>.</p>
+
+</div>
