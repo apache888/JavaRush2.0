@@ -1,0 +1,16 @@
+<div class="wdghtml" taskKey="com.javarush.task.task28.task2812">
+<h3>ShutdownNow!</h3>
+<p>Разберись в чем отличие методов <mark>shutdown</mark> и <mark>shutdownNow</mark>. Выведи список всех незавершенных задач на экран.</p>
+<p><strong>Должно получиться что-то вроде:</strong><br />
+<code>pool-1-thread-1, localId=1<br />
+pool-1-thread-2, localId=2<br />
+pool-1-thread-3, localId=3<br />
+pool-1-thread-4, localId=4<br />
+pool-1-thread-5, localId=5<br />
+java.util.concurrent.FutureTask@7e6cbb7a was not completed<br />
+java.util.concurrent.FutureTask@7c3df479 was not completed<br />
+java.util.concurrent.FutureTask@7106e68e was not completed<br />
+java.util.concurrent.FutureTask@7eda2dbb was not completed<br />
+java.util.concurrent.FutureTask@6576fe71 was not completed</code></p>
+
+</div>

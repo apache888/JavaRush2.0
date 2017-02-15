@@ -1,0 +1,9 @@
+<div class="wdghtml" taskKey="com.javarush.task.task36.task3601">
+<h3>MVC - простая версия</h3>
+<p>В отдельных файлах создай классы <span class="text-corporate"><strong>Service</strong></span>, <span class="text-corporate"><strong>Model</strong></span>, <span class="text-corporate"><strong>View</strong></span>, <span class="text-corporate"><strong>Controller</strong></span>.<br />
+Распредели методы из класса <span class="text-corporate"><strong>Solution</strong></span> по созданным классам учитывая, что должен получиться <strong>MVC</strong>.<br />
+Создай нужные поля класса при необходимости.<br />
+Не добавляй своих других методов.<br />
+Метод <mark>main</mark> оставь в классе <span class="text-corporate"><strong>Solution</strong></span>.</p>
+
+</div>

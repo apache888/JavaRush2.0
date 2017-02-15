@@ -1,0 +1,6 @@
+<div class="wdghtml" taskKey="com.javarush.task.task28.task2811">
+<h3>ReentrantReadWriteLock</h3>
+<p>Класс <span class="text-corporate"><strong>ReadWriteMap</strong></span> должен предоставлять корректный доступ к объекту Map из многих потоков, но в его реализации были допущены ошибки. Найди их и исправь.</p>
+<p><strong>P.S.</strong> <em>Для корректной работы </em><strong><span class="text-corporate">Map</span></strong><em> в многопоточной среде, желательно пользоваться стандартной реализацией, например </em><strong><span class="text-corporate">ConcurrentHashMap</span></strong><em> из пакета <strong>java.util.concurrent</strong>. Но иногда требуется работа с другим типом мапы, например </em><span class="text-corporate"><strong>LinkedHashMap</strong></span><em> и тогда предложенное решение будет как никогда кстати.</em></p>
+
+</div>

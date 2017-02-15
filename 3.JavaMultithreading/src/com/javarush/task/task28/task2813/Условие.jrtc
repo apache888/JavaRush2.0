@@ -1,0 +1,6 @@
+<div class="wdghtml" taskKey="com.javarush.task.task28.task2813">
+<h3>FutureTask</h3>
+<p>Класс <strong><span class="text-corporate">FactorialCalculator</span></strong> предназначен для вычисления факториала числа переданного в его конструктор в качестве параметра. К сожалению, он реализован некорректно и тебе необходимо это исправить.</p>
+<p>Внимательно разбери метод <mark>main</mark> класса <span class="text-corporate"><strong>Solution</strong></span>.</p>
+
+</div>

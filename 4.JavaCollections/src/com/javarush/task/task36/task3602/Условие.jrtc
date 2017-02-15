@@ -1,0 +1,9 @@
+<div class="wdghtml" taskKey="com.javarush.task.task36.task3602">
+<h3>Найти класс по описанию</h3>
+<p>Описание класса:<br />
+1. Реализует интерфейс <span class="text-yellow"><strong>List</strong></span>;<br />
+2. Является приватным статическим классом внутри популярного утилитного класса;<br />
+3. Доступ по индексу запрещен &#8212; кидается исключение <strong><span class="text-neon">IndexOutOfBoundsException</span></strong>.<br />
+Используя рефлекшн (<em>метод</em> <mark>getDeclaredClasses</mark>), верни подходящий тип в методе <mark>getExpectedClass</mark>.</p>
+
+</div>

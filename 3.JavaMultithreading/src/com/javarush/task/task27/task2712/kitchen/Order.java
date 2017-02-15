@@ -22,7 +22,7 @@ public class Order {
         for (Dish dish : dishes) {
             time += dish.getDuration();
         }
-        return time;
+        return time; //minutes
     }
 
     public boolean isEmpty(){

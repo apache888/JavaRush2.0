@@ -1,0 +1,8 @@
+<div class="wdghtml" taskKey="com.javarush.task.task36.task3603">
+<h3>Поиск класса по описанию</h3>
+<p>Замени следующие слова на нужные:<br />
+1. <strong><span class="text-corporate">ClassNameToBeReplaced</span></strong> &#8212; имя класса, потокобезопасный аналог <span class="text-corporate"><strong>ArrayList</strong></span>, в котором все операции изменения (<em><strong>mutative operations</strong></em>) используют новую копию основного массива.</p>
+<p>2. <mark>methodNameToBeReplaced</mark> &#8212; имя метода, который в текущий список &#8216;<strong><em>list</em></strong>&#8216; добавляет те элементы переданной коллекции, которые не содержатся в &#8216;<em><strong>list</strong></em>&#8216;.</p>
+<p>Не оставляй закомментированный код.</p>
+
+</div>
