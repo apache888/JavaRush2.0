@@ -1,0 +1,10 @@
+<div class="wdghtml" taskKey="com.javarush.task.task29.task2911">
+<h3>И еще раз рефакторинг</h3>
+<p>Задается целое число от <span class="text-user"><strong>0</strong></span> до <span class="text-user"><strong>1000</strong></span> включительно случайным образом. Пользователь вводит с клавиатуры число.<br />
+Программа отвечает, введенное число больше или меньше загаданного. Если за 10 попыток пользователь программы угадывает число &#8212; <strong>программа выводит</strong>:<br />
+&#171;<em><strong>Ты угадал!</strong></em>&#187;<br />
+&#171;<em><strong>Загаданное число: </strong></em><span class="text-user"><strong>[number]</strong></span>&#187;<br />
+иначе &#171;<em><strong>Ты проиграл!</strong></em>&#171;.<br />
+Исправь одну ошибку, чтобы код выполнял описанные действия.</p>
+
+</div>

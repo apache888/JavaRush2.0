@@ -1,0 +1,21 @@
+<div class="wdghtml" taskKey="com.javarush.task.task36.task3605">
+<h3>Использование TreeSet</h3>
+<p>Первым параметром приходит имя файла: <strong>файл1</strong>.<br />
+<strong>файл1</strong> содержит только буквы латинского алфавита, пробелы, знаки препинания, тире, символы перевода каретки.<br />
+Отсортируй буквы по алфавиту и выведи на экран первые <span class="text-user"><strong>5</strong></span> различных букв в одну строку без разделителей.<br />
+Если <strong>файл1</strong> содержит менее <span class="text-user"><strong>5</strong></span> различных букв, то выведи их все.<br />
+Буквы различного регистра считаются одинаковыми.<br />
+Регистр выводимых букв не влияет на результат.<br />
+Закрой потоки.</p>
+<p><strong>Пример <span class="text-user">1</span> данных входного файла:</strong><br />
+<code>zBk yaz b-kN</code></p>
+<p><strong>Пример <span class="text-user">1</span> вывода:</strong><br />
+<code>abkny</code></p>
+<p><strong>Пример <span class="text-user">2</span> данных входного файла:</strong><br />
+<code>caAC<br />
+A, aB? bB</code></p>
+<p><strong>Пример <span class="text-user">2</span> вывода:</strong><br />
+<strong>abc</strong></p>
+<p><strong>Подсказка:</strong> <em>использовать <strong>TreeSet</strong></em></p>
+
+</div>

@@ -1,0 +1,12 @@
+<div class="wdghtml" taskKey="com.javarush.task.task29.task2912">
+<h3>Рефакторинг паттерна Chain of Responsibility</h3>
+<p>Есть программа, в которой реализована система логирования по принципу:<br />
+&#8212; если событие уровня <mark class="green">FATAL</mark> &#8212; происходит звонок директору, отправляется <strong>СМС</strong>&#8212;<strong>сообщение</strong> <strong>CEO</strong>, выводится сообщение в консоль, происходит логирование в файл;<br />
+&#8212; если событие уровня <mark class="green">ERROR</mark> &#8212; отправляется <strong>СМС</strong>&#8212;<strong>сообщение</strong> <strong>CEO</strong>, выводится сообщение в консоль, происходит логирование в файл;<br />
+&#8212; если событие уровня <mark class="green">WARN</mark> &#8212; выводится сообщение в консоль, происходит логирование в файл;<br />
+&#8212; если событие уровня <mark class="green">INFO</mark> &#8212; происходит логирование в файл.</p>
+<p>В программе реализован паттерн &#171;<em><strong>цепочка ответственности</strong></em>&#171;. Изучи его внимательно. В классах <span class="text-corporate"><strong>FileLogger</strong></span>, <span class="text-corporate"><strong>ConsoleLogger</strong></span>, <span class="text-corporate"><strong>SmsLogger</strong></span>, <span class="text-corporate"><strong>PhoneLogger</strong></span> есть много повторяющегося кода. Подними весь повторяющийся код в абстрактный класс <span class="text-corporate"><strong>AbstractLogger</strong></span>.<br />
+Подъемом в рефакторинге называется перенос полей, методов, конструкторов из всех наследников в одного общего предка. Из наследников, при этом, удаляется код, который перенесен в класс предка.</p>
+<p>Логика работы программы не должна измениться.</p>
+
+</div>

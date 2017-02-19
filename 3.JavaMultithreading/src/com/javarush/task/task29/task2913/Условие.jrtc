@@ -1,0 +1,9 @@
+<div class="wdghtml" taskKey="com.javarush.task.task29.task2913">
+<h3>Замена рекурсии</h3>
+<p>В программе случайным образом генерируются два целых числа <mark class="user">A</mark> и <mark class="user">В</mark>. Нужно вывести все целые числа от <mark class="user">A</mark> до <mark class="user">B</mark> включительно, в порядке возрастания, если A меньше B, или в порядке убывания в противном случае.</p>
+<p>Задача реализована с использованием рекурсии.<br />
+Иногда в результате работы программы получаем <strong>Exception in thread &#171;<em>main</em>&#171;</strong> <em><strong>java.lang.StackOverflowError</strong></em>.</p>
+<p><strong>Твоя задача:</strong> перепиши код без использования рекурсии.<br />
+Метод <mark>recursion</mark> переименуй на <mark class="user">getAllNumbersBetween</mark>.</p>
+
+</div>

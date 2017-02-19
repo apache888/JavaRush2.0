@@ -1,0 +1,8 @@
+<div class="wdghtml" taskKey="com.javarush.task.task30.task3011">
+<h3>Сделай одно изменение кода</h3>
+<p>Внеси одну правку в код программы, чтобы вывод всегда был &#171;<em><strong>ABC</strong></em>&#171;, даже если в метод <mark>doSmth</mark><br />
+передавать параметрами <span class="text-neon"><strong>null</strong></span>.<br />
+Не изменяй и не добавляй строковые <strong>литералы</strong>. Не изменяй строки с выводом данных на экран.<br />
+Не добавляй <strong>сеттеры</strong>.</p>
+
+</div>

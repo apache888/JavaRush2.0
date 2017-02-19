@@ -14,7 +14,7 @@ public class Solution {
         Solution solution = new Solution();
         solution.humansRelationships = generateRelationships();
 
-        Set<Integer> allFriendsAndPotentialFriends = solution.getAllFriendsAndPotentialFriends(4, 2);
+        Set<Integer> allFriendsAndPotentialFriends = solution.getAllFriendsAndPotentialFriends(0, 2);
         System.out.println(allFriendsAndPotentialFriends);                              //expected: [0, 1, 2, 3, 5, 7]
         Set<Integer> potentialFriends = solution.removeFriendsFromSet(allFriendsAndPotentialFriends, 4);
         System.out.println(potentialFriends);                                           //expected: [2, 5, 7]
@@ -23,51 +23,51 @@ public class Solution {
     public Set<Integer> getAllFriendsAndPotentialFriends(int index, int deep) {
         //напишите тут ваш код
         Set<Integer> set = new HashSet<>();
+        if (deep == 0) {
+            return  set;
+        }
         boolean[] friend = humansRelationships[index];
         for (int i = 0; i < friend.length - 1; i++) {
             if (friend[i]) {
                 set.add(i);
-                boolean[] deep1 = humansRelationships[i];
-                for (int j = 0; j < deep1.length - 1; j++) {
-                    if (deep1[j]) {
-                        set.add(j);
-                        boolean[] deep2 = humansRelationships[j];
-                        for (int k = 0; k < deep2.length - 1; k++) {
-                            if (deep2[k]) {
-                                set.add(k);
-                            }
-                        }
-                        set.addAll(otherDiagonalPart(j));
-                    }
-                }
-                set.addAll(otherDiagonalPart(i));
+                set.addAll(getAllFriendsAndPotentialFriends(i, deep - 1));
             }
         }
-        set.addAll(otherDiagonalPart(index));
+        set.addAll(otherDiagonalPart(index, deep));
         set.remove(index);
 
         return set;
+        // короткое решение из хэлпа
+//        Set<Integer> result = new HashSet<>();
+//        if (deep == 0) return result;
+//        for (int i = 0; i < humansRelationships.length; i++) {
+//            if (i < index) {
+//                if (humansRelationships[index][i]) {
+//                    result.add(i);
+//                    result.addAll(getAllFriendsAndPotentialFriends(i, deep - 1));
+//                }
+//            } else {
+//                if (generateRelationships()[i][index]) {
+//                    result.add(i);
+//                    result.addAll(getAllFriendsAndPotentialFriends(i, deep - 1));
+//                }
+//            }
+//        }
+//        result.remove(index);
+//        return result;
     }
 
-    private Set<Integer> otherDiagonalPart(int index) {
+    private Set<Integer> otherDiagonalPart(int index, int deep) {
         Set<Integer> set = new HashSet<>();
-        for (int i = index + 1; i < humansRelationships.length; i++) {
-            if (humansRelationships[i][index]) {
-                set.add(i);
-                boolean[] deep1 = humansRelationships[i];
-                for (int j = 0; j < deep1.length - 1; j++) {
-                    if (deep1[j]) {
-                        set.add(j);
-                        boolean[] deep2 = humansRelationships[j];
-                        for (int k = 0; k < deep2.length - 1; k++) {
-                            if (deep2[k]) {
-                                set.add(k);
-                            }
-                        }
-                    }
+        if (deep == 0) {
+            return  set;
+        }
+            for (int i = index + 1; i < humansRelationships.length; i++) {
+                if (humansRelationships[i][index]) {
+                    set.add(i);
+                    set.addAll(getAllFriendsAndPotentialFriends(i, deep - 1));
                 }
             }
-        }
         return set;
     }
 

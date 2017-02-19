@@ -1,0 +1,9 @@
+<div class="wdghtml" taskKey="com.javarush.task.task30.task3009">
+<h3>Палиндром?</h3>
+<p>Объяви и реализуй логику приватного статического метода <mark>Set&lt;Integer&gt; getRadix(String number</mark>), в котором нужно определить, в каких системах счисления (<em>от </em><span class="text-user"><strong>2</strong></span><em> до </em><span class="text-user"><strong>36</strong></span><em> включительно</em>) представление числа <mark class="user">number</mark> (<em>передается в десятичной системе счисления</em>) является палиндромом и добавить индекс таких систем в результат.<br />
+Если переданное число некорректно &#8212; возвращай пустой <strong><span class="text-corporate">HashSet</span></strong>.<br />
+В системах счисления с основанием большим <span class="text-user"><strong>10</strong></span> в качестве цифр используются латинские буквы. К примеру, числу <span class="text-user"><strong>35</strong></span> в десятичной системе соответствует число &#171;<em><strong>Z</strong></em>&#187; в системе с основанием <span class="text-user"><strong>36</strong></span>.</p>
+<p>Метод <mark>main</mark> не принимает участие в тестировании.</p>
+<p><strong>P.S.:</strong> <em>В методе </em><mark>getRadix</mark><em> перехватывай</em> <strong><span class="text-corporate">NumberFormatException</span></strong>. <em>Стек-трейс выводить не нужно.</em></p>
+
+</div>

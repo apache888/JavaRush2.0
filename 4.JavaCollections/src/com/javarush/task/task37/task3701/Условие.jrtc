@@ -1,0 +1,9 @@
+<div class="wdghtml" taskKey="com.javarush.task.task37.task3701">
+<h3>Круговой итератор</h3>
+<p>Класс <span class="text-corporate"><strong>Solution</strong></span> наследуется от <strong><span class="text-corporate">ArrayList</span></strong>.<br />
+Перегрузи правильным образом метод <mark>iterator</mark> в классе <span class="text-corporate"><strong>Solution</strong></span>.<br />
+Напишите свой класс <strong><span class="text-corporate">RoundIterator</span></strong> внутри <span class="text-corporate"><strong>Solution</strong></span>, который будет итератором для списка <span class="text-red"><strong>Solution</strong></span>.<br />
+Итератор должен ходить по кругу по всем элементам.<br />
+В остальном поведение должно быть идентичным текущему итератору.</p>
+
+</div>

@@ -1,0 +1,31 @@
+<div class="wdghtml" taskKey="com.javarush.task.task30.task3012">
+<h3>Получи заданное число</h3>
+<p>Реализуй метод <mark>createExpression(int <strong>number</strong>)</mark>.<br />
+Метод <mark>createExpression</mark> вызывается с одним параметром <mark class="user">number</mark>. Этот параметр &#8212; число от<span class="text-user"> <strong>1</strong></span> до <span class="text-user"><strong>3000</strong></span> включительно.<br />
+Нужно вывести арифметическое выражение, результатом которого является число number.<br />
+Можно использовать числа: <span class="text-user"><strong>1, 3, 9, 27, 81, 243, 729, 2187</strong></span> не более, чем по одному разу.<br />
+Можно использовать знаки: &#171;<em><strong>+</strong></em>&#187; и &#171;<em><strong>&#8212;</strong></em>&#187; любое количество раз.<br />
+Обрати внимание, что перед каждым числом в искомой строке обязательно должен быть знак плюс или минус.<br />
+Перед выражением выведи <span class="text-neon">[переданное число] =. (Смотри примеры вывода ниже)</span>.</p>
+<p><strong>Пример1:</strong><br />
+<strong>Переданное число:<br />
+</strong><code>74</code><br />
+<strong>Ожидаемый вывод:<br />
+</strong><code>74 = - 1 + 3 - 9 + 81</code></p>
+<p><strong>Пример2:</strong><br />
+<strong>Переданное число:<br />
+</strong><code>1234</code><br />
+<strong>Ожидаемый вывод:<br />
+</strong><code>1234 = + 1 - 9 + 27 - 243 - 729 + 2187</code></p>
+<p>При выводе выражения используй числа <strong>ТОЛЬКО В ВОЗРАСТАЮЩЕМ</strong> порядке!<br />
+<strong>Переданное число:<br />
+</strong><code>2</code><br />
+<strong>Ожидаемый вывод:<br />
+</strong><code>2 = - 1 + 3 //правильно</code><br />
+<strong>Ожидаемый вывод:<br />
+</strong><code>2 = + 3 - 1 //НЕ правильно</code><br />
+Метод <mark>main</mark> не участвует в тестировании.</p>
+<p><strong>Подсказка:</strong><br />
+<em>Почитай в интернете про троичную симметричную систему счисления.</em></p>
+
+</div>

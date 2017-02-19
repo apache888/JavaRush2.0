@@ -1,0 +1,6 @@
+<div class="wdghtml" taskKey="com.javarush.task.task36.task3612">
+<h3>Почему сет не содержит элемент?</h3>
+<p>Историки добавили несколько дат произошедших событий в уникальное множество в методе <span class="text-corporate"><strong>initializeDates</strong></span>. Далее они точнее изучили исторические материалы, и уточнили время последнего события <mark>lastDate</mark>. Каково же было их изумление, когда в этом множестве не находится нужная дата &#8212; метод <mark>isLastDateContainsInDates</mark> возвращает <span class="text-neon"><strong>false</strong></span>.<br />
+Амиго &#8212; твой долг помочь истории. Внеси необходимые изменения, чтобы дата последнего события находилась в множестве <span class="text-user"><strong>dates</strong></span> (<em>чтобы вывод программы был</em> <strong><span class="text-neon">true</span></strong>).</p>
+
+</div>
