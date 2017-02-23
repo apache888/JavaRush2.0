@@ -33,7 +33,7 @@ public class ConsoleHelper {
                 dishes.add(Dish.valueOf(dishToOrder));
             }
             catch (IllegalArgumentException e) {
-                System.out.println(dishToOrder + " is not detected");
+                ConsoleHelper.writeMessage(dishToOrder + " is not detected");
             }
         }
         return dishes;

@@ -1,0 +1,9 @@
+<div class="wdghtml" taskKey="com.javarush.task.task37.task3704">
+<h3>Фикс бага</h3>
+<p>В Вашем большом проекте повсеместно используется метод <mark>getExpectedMap</mark>.<br />
+В какой-то момент тестеры обнаружили, что метод <mark>getExpectedMap</mark> выбрасывает <strong><span class="text-neon">NullPointerException</span></strong>.<br />
+Ожидаемое поведение описано в комментарии метода <mark>main</mark>.<br />
+Найди другую стандартную реализацию интерфейса <span class="text-yellow"><strong>Map</strong></span>, верни объект этого типа в <span class="text-corporate"><strong>getExpectedMap</strong></span> вместо <strong><span class="text-corporate">TreeMap</span></strong>.<br />
+Метод main должен отработать без исключений.</p>
+
+</div>

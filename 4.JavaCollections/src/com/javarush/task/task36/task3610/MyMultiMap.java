@@ -16,42 +16,95 @@ public class MyMultiMap<K, V> extends HashMap<K, V> implements Cloneable, Serial
     @Override
     public int size() {
         //напишите тут ваш код
-        return  0;
+        int result = 0;
+        for (List<V> vList : map.values()) {
+            result += vList.size();
+        }
+        return  result;
     }
 
     @Override
     public V put(K key, V value) {
         //напишите тут ваш код
-        return  null;
+        V lastValue = null;
+        if (!map.containsKey(key)) {
+            map.put(key, new LinkedList<>());
+            map.get(key).add(value);
+            return null;
+        }else
+        if (map.get(key).isEmpty()) {
+            map.get(key).add(value);
+            return null;
+        }else
+        if (map.get(key).size() < repeatCount) {
+            lastValue = map.get(key).get(map.get(key).size() - 1);
+            map.get(key).add(value);
+//            return lastValue;
+        } else if (map.get(key).size() == repeatCount) {
+            lastValue = map.get(key).get(map.get(key).size() - 1);
+            map.get(key).remove(0);
+            map.get(key).add(value);
+//            return lastValue;
+        }
+        return lastValue;
     }
 
     @Override
     public V remove(Object key) {
         //напишите тут ваш код
-        return  null;
+//        V result;
+//        if (!map.containsKey(key)) {
+//            return null;
+//        }
+//        if (map.get(key).size() == 0) {
+//            result = map.remove(key).get(0);
+//        } else {
+//            result = map.get(key).remove(0);
+//        }
+//        return  result;
+        if (map.containsKey(key)) {
+            List<V> list = map.get(key);
+            if (list.size() == 1) {   // or 0
+                map.remove(key);
+                return list.get(0);
+            }
+            else {
+                return list.remove(0);
+            }
+        } else return null;
     }
 
     @Override
     public Set<K> keySet() {
         //напишите тут ваш код
-        return  null;
+
+        return  map.keySet();
     }
 
     @Override
     public Collection<V> values() {
         //напишите тут ваш код
-        return  null;
+        ArrayList<V> result = new ArrayList<>();
+        for (List<V> vList : map.values()) {
+            result.addAll(vList);
+        }
+        return  result;
     }
 
     @Override
     public boolean containsKey(Object key) {
         //напишите тут ваш код
-        return  false;
+        return  map.containsKey(key);
     }
 
     @Override
     public boolean containsValue(Object value) {
         //напишите тут ваш код
+        for (List<V> vList : map.values()) {
+            if (vList.contains(value)) {
+                return true;
+            }
+        }
         return  false;
     }
 

@@ -12,6 +12,7 @@ public class Solution {
         for (int i = 0; i < 7; i++) {
             map.put(i, i);
         }
+        System.out.println(map);
         map.put(5, 56);
         map.put(5, 57);
         System.out.println(map.put(5, 58));             //expected: 57

@@ -1,0 +1,7 @@
+<div class="wdghtml" taskKey="com.javarush.task.task37.task3705">
+<h3>Ambiguous behavior for NULL</h3>
+<p>Измени реализацию метода <mark>getExpectedMap</mark>, он должен вернуть объект такого класса, для которого будет противоположное поведение при добавлении ссылки <strong><span class="text-neon">null</span></strong>.<br />
+См. пример вывода в методе <mark>main</mark>.<br />
+Остальной код не менять.</p>
+
+</div>

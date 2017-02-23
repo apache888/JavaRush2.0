@@ -1,0 +1,8 @@
+<div class="wdghtml" taskKey="com.javarush.task.task37.task3708">
+<h3>Кеширующий Proxy</h3>
+<p>Реализация паттерна <strong><span class="text-red">Proxy</span></strong> предоставляет объект, который контролирует доступ к другому объекту.</p>
+<p>Тебе необходимо создать класс <strong><span class="text-corporate">CachingProxyRetriever</span></strong> в пакете <span class="text-red"><strong>retrievers</strong></span>, который будет обеспечивать ту же функциональность что и класс <span class="text-corporate"><strong>OriginalRetriever</strong></span>, но с одним важным дополнением. Необходимо всегда пробовать сначала получить объект из кеша, и только если его там нет &#8212; выполнять дорогостоящую операцию загрузки из <span class="text-corporate"><strong>storage</strong></span>. После получения необходимого объекта из хранилища storage, его необходимо кешировать с помощью объекта типа <span class="text-corporate"><strong>LRUCache</strong></span>.</p>
+<p>Для клиента (в данном случае класс <span class="text-corporate"><strong>Solution</strong></span>) использование <span class="text-corporate"><strong>CachingProxyRetriever</strong></span> ничем не должно отличаться от использования класса <span class="text-corporate"><strong>OriginalRetriever</strong></span>.</p>
+<p><strong>P.S.</strong> <em>Тебе понадобятся поля типов</em> <strong>LRUCache</strong> <em>и</em> <strong>OriginalRetriever</strong> <em>в классе</em> <span class="text-corporate"><strong>CachingProxyRetriever</strong></span>.</p>
+
+</div>

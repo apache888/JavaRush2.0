@@ -17,20 +17,20 @@ public class AdvertisementManager {
 
     public void processVideos() throws NoVideoAvailableException{
         List<Advertisement> availableVideos = storage.list();
-        List<Advertisement> showVideos = new ArrayList<>();
-        int totalTime = 0;
-        for (Advertisement video : availableVideos) {
-            if (video.getDuration() < timeSeconds) {
-                if ((totalTime + video.getDuration()) < timeSeconds){
-                    totalTime =  totalTime + video.getDuration();
-                    showVideos.add(video);
-                }else totalTime =  totalTime;
-            }
-        }
-        if (showVideos.isEmpty()) {
+//        List<Advertisement> showVideos = new ArrayList<>();
+//        int totalTime = 0;
+//        for (Advertisement video : availableVideos) {
+//            if (video.getDuration() < timeSeconds) {
+//                if ((totalTime + video.getDuration()) < timeSeconds){
+//                    totalTime =  totalTime + video.getDuration();
+//                    showVideos.add(video);
+//                }else totalTime =  totalTime;
+//            }
+//        }
+        if (availableVideos.isEmpty()) {
             throw new NoVideoAvailableException();
         }
-        Collections.sort(showVideos, new Comparator<Advertisement>() {
+        Collections.sort(availableVideos, new Comparator<Advertisement>() {
             @Override
             public int compare(Advertisement o1, Advertisement o2) {
                 long pricePerVideoDiff = o2.getAmountPerOneDisplaying() - o1.getAmountPerOneDisplaying();
@@ -41,9 +41,15 @@ public class AdvertisementManager {
                 }
             }
         });
-        for (Advertisement showVideo : showVideos) {
-            ConsoleHelper.writeMessage(String.format("%s is displaying... %d, %d", showVideo.getName(),
-                    showVideo.getAmountPerOneDisplaying(), showVideo.getAmountPerOneDisplaying() * 1000 / showVideo.getDuration()));
+//        int totalTime = timeSeconds;
+        for (Advertisement adVideo : availableVideos) {
+//            if (adVideo.getDuration() <= totalTime && adVideo.getHits() > 0) {
+
+                ConsoleHelper.writeMessage(String.format("%s is displaying... %d, %d", adVideo.getName(),
+                        adVideo.getAmountPerOneDisplaying(), adVideo.getAmountPerOneDisplaying() * 1000 / adVideo.getDuration()));
+                adVideo.revalidate();
+//                totalTime -= adVideo.getDuration();
+//            }
         }
     }
 }

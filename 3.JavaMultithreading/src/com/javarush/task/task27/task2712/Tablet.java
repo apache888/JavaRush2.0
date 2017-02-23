@@ -14,7 +14,7 @@ public class Tablet extends Observable {
     private static Logger logger = Logger.getLogger(Tablet.class.getName());
 //    private AdvertisementManager manager;
 
-    final int number;
+    private final int number;
 
     public Tablet(int number) {
         this.number = number;
@@ -25,14 +25,16 @@ public class Tablet extends Observable {
         try {
             order = new Order(this);
             if (order.isEmpty()) return;
-            System.out.println(order);
+            ConsoleHelper.writeMessage(order.toString());
             setChanged();
             notifyObservers(order);
-            new AdvertisementManager(order.getTotalCookingTime() * 60).processVideos();
+            try {
+                new AdvertisementManager(order.getTotalCookingTime() * 60).processVideos();
+            } catch (NoVideoAvailableException ex) {
+                logger.log(Level.INFO, "No video is available for the order" + order);
+            }
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Console is unavailable.");
-        } catch (NoVideoAvailableException ex) {
-            logger.log(Level.INFO, "No video is available for the order" + order);
         }
 
     }
