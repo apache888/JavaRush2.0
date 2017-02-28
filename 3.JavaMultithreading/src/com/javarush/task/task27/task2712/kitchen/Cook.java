@@ -7,7 +7,7 @@ import java.util.Observer;
 
 public class Cook extends Observable implements Observer {
 
-    private String name;
+    private final String name; // было без final
 
     public Cook(String name) {
         this.name = name;

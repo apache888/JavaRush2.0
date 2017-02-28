@@ -1,0 +1,9 @@
+taskKey="com.javarush.task.task38.task3801"
+
+Исправь ошибки в коде
+
+Исключения NameIsEmptyException и NameIsNullException должны быть checked.
+Все типы исключений должны быть обработаны.
+Реализацию методов main() и getNumberOfCharacters() не менять.
+
+

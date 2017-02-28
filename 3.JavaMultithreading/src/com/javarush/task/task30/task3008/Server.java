@@ -31,27 +31,44 @@ public class Server {
 
         @Override
         public void run() {
-//            SocketAddress socketAddress = null;
-            if (socket != null && socket.getRemoteSocketAddress() != null) {
-                ConsoleHelper.writeMessage("Established a new connection to a remote socket address: " + socket.getRemoteSocketAddress());
-            }
-            String userName = null;
-//            String errorMessage = "An exchange of data error to a remote socket address: "; //+ socketAddress;
-            try (Connection connection = new Connection(socket)) {
-//                SocketAddress socketAddress = connection.getRemoteSocketAddress();
-//                ConsoleHelper.writeMessage("Established a new connection to a remote socket address: " + connection.getRemoteSocketAddress());
-                userName = serverHandshake(connection);
-                sendBroadcastMessage(new Message(MessageType.USER_ADDED, userName));
-                sendListOfUsers(connection, userName);
-                serverMainLoop(connection, userName);
-            } catch (IOException | ClassNotFoundException e) {
-                ConsoleHelper.writeMessage("An exchange of data error to a remote socket address");
-            } finally {
-                if (userName != null) {
-                    connectionMap.remove(userName);
-                    sendBroadcastMessage(new Message(MessageType.USER_REMOVED, userName));
+////            SocketAddress socketAddress = null;
+//            if (socket != null && socket.getRemoteSocketAddress() != null) {
+//                ConsoleHelper.writeMessage("Established a new connection to a remote socket address: " + socket.getRemoteSocketAddress());
+//            }
+//            String userName = null;
+////            String errorMessage = "An exchange of data error to a remote socket address: "; //+ socketAddress;
+//            try (Connection connection = new Connection(socket)) {
+////                SocketAddress socketAddress = connection.getRemoteSocketAddress();
+////                ConsoleHelper.writeMessage("Established a new connection to a remote socket address: " + connection.getRemoteSocketAddress());
+//                userName = serverHandshake(connection);
+//                sendBroadcastMessage(new Message(MessageType.USER_ADDED, userName));
+//                sendListOfUsers(connection, userName);
+//                serverMainLoop(connection, userName);
+//            } catch (IOException | ClassNotFoundException e) {
+//                ConsoleHelper.writeMessage("An exchange of data error to a remote socket address");
+//            } finally {
+//                if (userName != null) {
+//                    connectionMap.remove(userName);
+//                    sendBroadcastMessage(new Message(MessageType.USER_REMOVED, userName));
+//                }
+//                ConsoleHelper.writeMessage("Closed connection to a remote socket address: "); // + socketAddress);
+//            }
+            ConsoleHelper.writeMessage("Established new connection with remote address " + socket.getRemoteSocketAddress());
+            String clientName = null;
+            try (Connection connection = new Connection(socket)){
+                ConsoleHelper.writeMessage("Connection with port " + connection.getRemoteSocketAddress());
+                clientName = serverHandshake(connection);
+                sendBroadcastMessage(new Message(MessageType.USER_ADDED, clientName));
+                sendListOfUsers(connection, clientName);
+                serverMainLoop(connection, clientName);
+            } catch (IOException | ClassNotFoundException e){
+                ConsoleHelper.writeMessage("An error occurred while communicating with the remote address");
+            } finally{
+                if (clientName != null){
+                    connectionMap.remove(clientName);
+                    sendBroadcastMessage(new Message(MessageType.USER_REMOVED, clientName));
+                    ConsoleHelper.writeMessage(String.format("Connection with remote address (%s) is closed.", socket.getRemoteSocketAddress()));
                 }
-                ConsoleHelper.writeMessage("Closed connection to a remote socket address: "); // + socketAddress);
             }
         }
 
@@ -59,9 +76,7 @@ public class Server {
             while (true) {
                 connection.send(new Message(MessageType.NAME_REQUEST));
                 Message answer = connection.receive();
-//                if (answer != null && answer.getType() == MessageType.USER_NAME) {
                 if (answer.getType() == MessageType.USER_NAME) {
-//                    if (!answer.getData().equals("") && answer.getData() != null) {
                     if (!answer.getData().isEmpty()) {
                         if (!connectionMap.containsKey(answer.getData())) {
                             connectionMap.put(answer.getData(), connection);

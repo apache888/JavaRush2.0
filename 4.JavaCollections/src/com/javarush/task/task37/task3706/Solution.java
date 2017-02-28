@@ -15,9 +15,7 @@ public class Solution {
     }
 
     public static Number[] getData() {
-        ArrayList<Number> list = new ArrayList<>(Arrays.asList(4, 5, 6));
-        Number[] nums = new Number[list.size()];
-        return list.toArray(nums);
+        return new Number[]{};
     }
 
     public static void addDataToList(List<Number> list, Number... data) {

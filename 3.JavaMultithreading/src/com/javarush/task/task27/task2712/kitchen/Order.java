@@ -8,8 +8,7 @@ import java.util.List;
 
 public class Order {
 
-//    public String allDishes = Dish.allDishesToString();
-    public List<Dish> dishes;
+    private List<Dish> dishes;
     private Tablet tablet;
 
     public Order(Tablet tablet) throws IOException {

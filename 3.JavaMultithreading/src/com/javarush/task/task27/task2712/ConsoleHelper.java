@@ -29,11 +29,24 @@ public class ConsoleHelper {
             if (dishToOrder.equalsIgnoreCase("exit")) {
                 break;
             }
-            try {
-                dishes.add(Dish.valueOf(dishToOrder));
+//            try {
+//                dishes.add(Dish.valueOf(dishToOrder)); //?
+//            }
+//            catch (IllegalArgumentException e) {
+//                ConsoleHelper.writeMessage(dishToOrder + " is not detected");
+//            }
+            if(dishToOrder.isEmpty()){
+                writeMessage("Блюдо не выбрано");
+                continue;
             }
-            catch (IllegalArgumentException e) {
-                ConsoleHelper.writeMessage(dishToOrder + " is not detected");
+            boolean found = false;
+            for(Dish d : Dish.values())
+                if(d.name().equalsIgnoreCase(dishToOrder)) {
+                    dishes.add(d);
+                    found = true;
+                }
+            if(!found){
+                writeMessage("Нет такого блюда");
             }
         }
         return dishes;

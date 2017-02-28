@@ -1,0 +1,13 @@
+taskKey="com.javarush.task.task38.task3803"
+
+Runtime исключения (unchecked exception)
+
+Напиши реализацию метода methodThrowsClassCastException(). Он должен
+всегда кидать Runtime исключение ClassCastException.
+
+Напиши реализацию метода methodThrowsNullPointerException(). Он должен
+всегда кидать Runtime исключение NullPointerException.
+
+Кинуть исключение (throw) явно нельзя.
+
+
