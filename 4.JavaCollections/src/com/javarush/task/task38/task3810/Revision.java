@@ -4,7 +4,6 @@ public @interface Revision {
     //напиши свой код
     int revision();
     Date date();
-    String comment() default "";
     Author[] authors() default {};
-
+    String comment() default "";
 }

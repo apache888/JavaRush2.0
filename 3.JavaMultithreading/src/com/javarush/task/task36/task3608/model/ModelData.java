@@ -12,7 +12,6 @@ public class ModelData {
     public User getActiveUser() {
         return activeUser;
     }
-
     public void setActiveUser(User activeUser) {
         this.activeUser = activeUser;
     }
@@ -20,7 +19,6 @@ public class ModelData {
     public List<User> getUsers() {
         return users;
     }
-
     public void setUsers(List<User> users) {
         this.users = users;
     }
@@ -28,7 +26,6 @@ public class ModelData {
     public boolean isDisplayDeletedUserList() {
         return displayDeletedUserList;
     }
-
     public void setDisplayDeletedUserList(boolean displayDeletedUserList) {
         this.displayDeletedUserList = displayDeletedUserList;
     }
