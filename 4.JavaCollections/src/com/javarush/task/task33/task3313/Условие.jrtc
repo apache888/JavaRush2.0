@@ -1,0 +1,8 @@
+taskKey="com.javarush.task.task33.task3313"
+
+Сериализация даты в JSON
+
+Используя аннотацию JsonFormat сделай так, чтобы поле содержащее дату в классе Event сериализировалось
+в формате (dd-MM-yyyy hh:mm:ss).
+
+

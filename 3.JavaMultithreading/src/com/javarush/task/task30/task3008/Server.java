@@ -3,7 +3,6 @@ package com.javarush.task.task30.task3008;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketAddress;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -31,28 +30,6 @@ public class Server {
 
         @Override
         public void run() {
-////            SocketAddress socketAddress = null;
-//            if (socket != null && socket.getRemoteSocketAddress() != null) {
-//                ConsoleHelper.writeMessage("Established a new connection to a remote socket address: " + socket.getRemoteSocketAddress());
-//            }
-//            String userName = null;
-////            String errorMessage = "An exchange of data error to a remote socket address: "; //+ socketAddress;
-//            try (Connection connection = new Connection(socket)) {
-////                SocketAddress socketAddress = connection.getRemoteSocketAddress();
-////                ConsoleHelper.writeMessage("Established a new connection to a remote socket address: " + connection.getRemoteSocketAddress());
-//                userName = serverHandshake(connection);
-//                sendBroadcastMessage(new Message(MessageType.USER_ADDED, userName));
-//                sendListOfUsers(connection, userName);
-//                serverMainLoop(connection, userName);
-//            } catch (IOException | ClassNotFoundException e) {
-//                ConsoleHelper.writeMessage("An exchange of data error to a remote socket address");
-//            } finally {
-//                if (userName != null) {
-//                    connectionMap.remove(userName);
-//                    sendBroadcastMessage(new Message(MessageType.USER_REMOVED, userName));
-//                }
-//                ConsoleHelper.writeMessage("Closed connection to a remote socket address: "); // + socketAddress);
-//            }
             ConsoleHelper.writeMessage("Established new connection with remote address " + socket.getRemoteSocketAddress());
             String clientName = null;
             try (Connection connection = new Connection(socket)){

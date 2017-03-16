@@ -1,12 +1,6 @@
 package com.javarush.task.task31.task3112;
 
-import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-/* 
+/*
 Загрузчик файлов
 */
 public class Solution {
@@ -18,7 +12,7 @@ public class Solution {
 //            System.out.println(line);
 //        }
 //    }
-
+//
 //    public static Path downloadFile(String urlString, Path downloadDirectory) throws IOException {
 //        // implement this method
 //    }

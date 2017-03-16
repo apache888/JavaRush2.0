@@ -27,8 +27,9 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
             root.checkChildren();
             return true;
         } else {
-            root.checkChildren();
-            if (root.availableToAddRightChildren) {
+            Entry<String> entry = root;
+            entry.checkChildren();
+            if (entry.isAvailableToAddChildren()) {
 
             }
         }

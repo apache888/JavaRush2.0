@@ -1,5 +1,6 @@
 package com.javarush.task.task20.task2027;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /* 
@@ -14,7 +15,7 @@ public class Solution {
                 {'m', 'l', 'p', 'r', 'r', 'h'},
                 {'p', 'o', 'e', 'e', 'j', 'j'}
         };
-        detectAllWords(crossword, "home", "same");
+        System.out.println(detectAllWords(crossword, "home", "same"));
         /*
 Ожидаемый результат
 home - (5, 3) - (2, 0)
@@ -22,9 +23,130 @@ same - (1, 1) - (4, 1)
          */
     }
 
-    public static List<Word> detectAllWords(int[][] crossword, String... words) {
+    public static List<Word> detectAllWords(int[][] crossword, String... words) {  //общее решение
+        List<Word> wordList = new ArrayList<>();
+        int hor = crossword[0].length;
+        int ver = crossword.length;
 
-        return null;
+        outer: for (String s : words) {
+            //по горизонтали
+            for (int i = 0; i < ver; i++) {
+                StringBuilder sb = new StringBuilder();
+                for (int j = 0; j < hor; j++)
+                    sb.append((char) crossword[i][j]);
+
+                String horLine = sb.toString();
+                if (horLine.contains(s)) {
+                    Word word = new Word(s);
+                    word.setStartPoint(horLine.indexOf(s), i);
+                    word.setEndPoint(horLine.indexOf(s) + s.length() - 1, i);
+
+                    wordList.add(word);
+                    continue outer;
+                }
+                String horReverse = sb.reverse().toString();
+                if (horReverse.contains(s)) {
+                    Word word = new Word(s);
+                    word.setStartPoint(hor - horReverse.indexOf(s) - 1, i);
+                    word.setEndPoint(hor - horReverse.indexOf(s) - s.length(), i);
+
+                    wordList.add(word);
+                    continue outer;
+                }
+            }
+            //по вертикали
+            for (int i = 0; i < hor; i++) {
+                StringBuilder sb = new StringBuilder();
+                for (int[] aCrossword : crossword)
+                    sb.append((char) aCrossword[i]);
+
+                String horLine = sb.toString();
+                if (horLine.contains(s)) {
+                    Word word = new Word(s);
+                    word.setStartPoint(i, horLine.indexOf(s));
+                    word.setEndPoint(i, horLine.indexOf(s) + s.length() - 1);
+
+                    wordList.add(word);
+                    continue outer;
+                }
+                String horReverse = sb.reverse().toString();
+                if (horReverse.contains(s)) {
+                    Word word = new Word(s);
+                    word.setStartPoint(i, ver - horReverse.indexOf(s) - 1);
+                    word.setEndPoint(i, ver - s.length() - horReverse.indexOf(s));
+
+                    wordList.add(word);
+                    continue outer;
+                }
+            }
+
+            //по диагонали вправо
+            for (int i = 0; i < ver; i++) {
+                for (int j = 0; j < hor; j++) {
+                    int iTemp = i;
+                    int jTemp = j;
+                    StringBuilder sb = new StringBuilder();
+                    while (iTemp < ver && jTemp < hor) {
+                        sb.append((char) crossword[iTemp][jTemp]);
+                        iTemp++;
+                        jTemp++;
+                    }
+                    String horLine = sb.toString();
+                    if (horLine.contains(s)) {
+                        Word word = new Word(s);
+                        word.setStartPoint(j + horLine.indexOf(s), i + horLine.indexOf(s));
+                        word.setEndPoint(j + horLine.indexOf(s) + s.length() - 1, i + horLine.indexOf(s) + s.length() - 1);
+
+                        wordList.add(word);
+                        continue outer;
+                    }
+                    String horReverse = sb.reverse().toString();
+                    if (horReverse.contains(s)) {
+                        Word word = new Word(s);
+                        word.setStartPoint(jTemp - 1 - horReverse.indexOf(s), iTemp - 1 - horReverse.indexOf(s));
+                        word.setEndPoint(jTemp  - horReverse.indexOf(s) - s.length(), iTemp  - horReverse.indexOf(s) - s.length());
+
+                        wordList.add(word);
+                        continue outer;
+                    }
+                }
+            }
+
+            //по диагонали влево
+            for (int i = 0; i < ver; i++) {
+                for (int j = hor - 1; j >= 0; j--) {
+                    int iTemp = i;
+                    int jTemp = j;
+                    StringBuilder sb = new StringBuilder();
+                    while (iTemp < ver && jTemp >= 0) {
+                        sb.append((char) crossword[iTemp][jTemp]);
+                        iTemp++;
+                        jTemp--;
+                    }
+
+                    String horLine = sb.toString();
+                    if (horLine.contains(s)) {
+                        Word word = new Word(s);
+                        word.setStartPoint(j - horLine.indexOf(s), i + horLine.indexOf(s));
+                        word.setEndPoint(j - horLine.indexOf(s) - s.length() + 1, i + horLine.indexOf(s) + s.length() - 1);
+
+                        wordList.add(word);
+                        continue outer;
+                    }
+                    String horReverse = sb.reverse().toString();
+                    if (horReverse.contains(s)){
+                        Word word = new Word(s);
+                        word.setStartPoint(jTemp + 1 + horReverse.indexOf(s), iTemp - 1 - horReverse.indexOf(s));
+                        word.setEndPoint(jTemp  + horReverse.indexOf(s) + s.length(), iTemp  - horReverse.indexOf(s) - s.length());
+
+                        wordList.add(word);
+                        continue outer;
+                    }
+                }
+            }
+        }
+//        System.out.println(wordList);
+        return wordList;
     }
 
     public static class Word {

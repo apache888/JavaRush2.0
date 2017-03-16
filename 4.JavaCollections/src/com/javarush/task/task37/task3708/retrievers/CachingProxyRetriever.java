@@ -6,10 +6,8 @@ import com.javarush.task.task37.task3708.storage.Storage;
 public class CachingProxyRetriever implements Retriever{
     private LRUCache<Long, Object> lruCache; //= new LRUCache<>(16);
     private OriginalRetriever originalRetriever;
-//    private Storage storage;
 
     public CachingProxyRetriever(Storage storage) {
-//        this.storage = storage;
         originalRetriever = new OriginalRetriever(storage);
         lruCache = new LRUCache<>(16);
     }
